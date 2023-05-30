@@ -1,0 +1,17 @@
+.title{
+    font-weight: 400;
+    font-size: 35px;
+}
+.rating{
+    font-size: 30px;
+}
+.overview{
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 20px;
+    height: 120px;
+    overflow-y: hidden;
+}
+.overview:hover{
+    overflow-y: auto;
+}
