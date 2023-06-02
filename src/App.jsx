@@ -5,6 +5,7 @@ import { BACKDROP_BASE_URL } from "./config";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
 import { TVShowList } from "./components/TVShowList/TVShowList";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 TVShowAPI.fetchPopulars();
 export function App(){
     const [currentTVShow, setCurrentTvShow] = useState();
@@ -39,6 +40,16 @@ export function App(){
       setCurrentTvShow(tvShow);
     }
 
+
+    async function fetchByTitle(title) {
+      const searchResponse = await TVShowAPI.fetchByTitle(
+        title
+      );
+      if (searchResponse.length > 0) {
+        setCurrentTvShow(searchResponse[0]);
+      }
+    }
+
     return(
         <div className={s.main_container}
         style={{
@@ -57,7 +68,7 @@ export function App(){
                     
                     
                     <div className="col-md-12 col-lg-4">
-                        <input style= {{width:"100%"}}type="text"></input>
+                      <SearchBar onSubmit={fetchByTitle}></SearchBar>
                     </div>
                 </div>
             </div>

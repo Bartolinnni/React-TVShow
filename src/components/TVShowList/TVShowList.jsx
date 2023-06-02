@@ -10,7 +10,7 @@ export function TVShowList({tvShowList, onClickItem}){
             <div className={s.list}>
                 {
                     tvShowList.map((tvShow) => {
-                        return <span className={s.tv_show_item}>
+                        return <span className={s.tv_show_item} key={tvShow.id}>
                             <TVShowListItem tvShow={tvShow} onClick = {onClickItem}> </TVShowListItem>
                         </span>
                     })
